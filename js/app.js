@@ -121,8 +121,9 @@ class App {
   }
 
   async loadData() {
-    this.players = await window.db.getPlayers();
-    this.tournaments = await window.db.getTournaments();
+    const mock = window.embeddedMockData || { players: [], tournaments: [] };
+    this.players = [...(mock.players || [])];
+    this.tournaments = [...(mock.tournaments || [])];
     this.computeRatingsAndStats();
   }
 
@@ -541,7 +542,12 @@ class App {
     const sel = document.getElementById('tournament-select');
     if (!sel) return;
     const tid = sel.value;
-    const details = await window.db.getTournamentDetails(tid);
+    const tournament = (this.tournaments || []).find(t => t.id === tid) || this.tournaments[0];
+    const details = {
+      tournament,
+      participants: tournament ? tournament.participants : [],
+      matches: tournament ? tournament.matches : []
+    };
     this.activeTournament = details;
 
     const badge = document.getElementById('tournament-meta-badge');
@@ -836,7 +842,25 @@ class App {
         }
       });
     } else {
-      h2h = await window.db.getHeadToHead(p1Id, p2Id);
+      // Find matches between two teams
+      let allMatches = [];
+      (this.tournaments || []).forEach(t => {
+        (t.matches || []).forEach(m => {
+          if (
+            (m.player1_id === p1Id && m.player2_id === p2Id) ||
+            (m.player1_id === p2Id && m.player2_id === p1Id)
+          ) {
+            allMatches.push({ ...m, tournament_title: t.title, tournament_date: t.tournament_date });
+          }
+        });
+      });
+      let p1Wins = 0;
+      let p2Wins = 0;
+      allMatches.forEach(m => {
+        if (m.winner_id === p1Id) p1Wins++;
+        else if (m.winner_id === p2Id) p2Wins++;
+      });
+      h2h = { total: allMatches.length, p1Wins, p2Wins, matches: allMatches };
     }
 
     const p1WinRate = h2h.total > 0 ? Math.round((h2h.p1Wins / h2h.total) * 100) : 0;
@@ -908,9 +932,41 @@ class App {
     `;
   }
 
-  // --- COURT CHAT / MESSAGES ---
+  // --- COURT CHAT / MESSAGES (Offline localStorage) ---
+  getLocalMessages() {
+    const raw = localStorage.getItem('sgcourt_local_messages');
+    if (raw) {
+      try { return JSON.parse(raw); } catch (e) {}
+    }
+    const defaults = [
+      {
+        id: "sgmsg-1",
+        author_name: "DinkPro_SG",
+        content: "Great championship matches! Randeep & Edwin were dominant at the kitchen line in Men's Doubles, and Henry & Claudia took Mixed Doubles with style!",
+        parent_id: null,
+        likes: 9,
+        created_at: "2026-11-17T20:30:00Z"
+      },
+      {
+        id: "sgmsg-2",
+        author_name: "JurongKitchenCrew",
+        content: "Claudia played two finals tonight (Champion in WD and Champion in XD) — crazy stamina!",
+        parent_id: "sgmsg-1",
+        likes: 6,
+        created_at: "2026-11-17T20:45:00Z"
+      }
+    ];
+    localStorage.setItem('sgcourt_local_messages', JSON.stringify(defaults));
+    return defaults;
+  }
+
   async loadMessages() {
-    this.messages = await window.db.getMessages();
+    this.messages = this.getLocalMessages();
+  }
+
+  saveLocalMessages(msgs) {
+    this.messages = msgs;
+    localStorage.setItem('sgcourt_local_messages', JSON.stringify(msgs));
   }
 
   renderMessages() {
@@ -1023,18 +1079,32 @@ class App {
     if (!content) return;
 
     const nickname = nickInput ? nickInput.value.trim() : '';
-    await window.db.addMessage(nickname, content, this.replyTargetId);
+    const newMsg = {
+      id: 'sgmsg-' + Date.now(),
+      author_name: nickname || 'Anonymous Baller',
+      content,
+      parent_id: this.replyTargetId || null,
+      likes: 0,
+      created_at: new Date().toISOString()
+    };
+
+    const msgs = this.getLocalMessages();
+    msgs.unshift(newMsg);
+    this.saveLocalMessages(msgs);
 
     contentInput.value = '';
     this.cancelReply();
-    await this.loadMessages();
     this.renderMessages();
   }
 
   async likeMessage(id) {
-    await window.db.likeMessage(id);
-    await this.loadMessages();
-    this.renderMessages();
+    const msgs = this.getLocalMessages();
+    const target = msgs.find(m => m.id === id);
+    if (target) {
+      target.likes = (target.likes || 0) + 1;
+      this.saveLocalMessages(msgs);
+      this.renderMessages();
+    }
   }
 
   escapeHtml(str) {
@@ -1102,7 +1172,22 @@ class App {
         ratingHistory: p.ratingHistory || []
       };
     } else {
-      history = await window.db.getPlayerHistory(playerId);
+      const teamMatches = [];
+      (this.tournaments || []).forEach(t => {
+        (t.matches || []).forEach(m => {
+          if (m.player1_id === playerId || m.player2_id === playerId) {
+            teamMatches.push({
+              ...m,
+              tournament_title: t.title,
+              date: t.tournament_date
+            });
+          }
+        });
+      });
+      history = {
+        matches: teamMatches,
+        ratingHistory: p.ratingHistory || []
+      };
     }
 
     const winRate = p.total_matches > 0 ? Math.round((p.total_wins / p.total_matches) * 100) : 0;
