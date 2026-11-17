@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGCourt - Singapore Pickleball DUPR League & Leaderboard</title>
+  
+  <!-- Standalone Offline Intranet CSS (No external CDNs required) -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="app-header">
+    <div class="container">
+      <div class="header-row">
+        <!-- Logo -->
+        <div class="brand-wrap" onclick="app.navigate('leaderboard')">
+          <div class="brand-icon">⚡</div>
+          <div>
+            <div class="brand-title-wrap">
+              <span class="brand-title">SGCOURT</span>
+              <span class="brand-badge">DUPR</span>
+            </div>
+            <span class="brand-sub" data-i18n="appSubtitle">Pickleball DUPR Community League</span>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+          <button onclick="app.navigate('leaderboard')" id="nav-leaderboard" class="nav-btn active">
+            <span>🏆</span> <span data-i18n="navLeaderboard">Leaderboard</span>
+          </button>
+          <button onclick="app.navigate('tournaments')" id="nav-tournaments" class="nav-btn">
+            <span>🏓</span> <span data-i18n="navTournaments">Tournaments & Pools</span>
+          </button>
+          <button onclick="app.navigate('h2h')" id="nav-h2h" class="nav-btn">
+            <span>⚡</span> <span data-i18n="navH2H">Head-to-Head</span>
+          </button>
+          <button onclick="app.navigate('board')" id="nav-board" class="nav-btn">
+            <span>💬</span> <span data-i18n="navBoard">Court Chat</span>
+          </button>
+        </nav>
+
+        <!-- Right Action Button: Mode / Language -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <!-- Language Toggle Pill -->
+          <div class="pill-toggle">
+            <button onclick="app.setLanguage('en')" id="lang-btn-en" class="pill-btn active">EN</button>
+            <button onclick="app.setLanguage('cn')" id="lang-btn-cn" class="pill-btn">中文</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Bar -->
+    <div class="mobile-nav">
+      <button onclick="app.navigate('leaderboard')" id="mob-nav-leaderboard" class="mobile-nav-btn active">
+        <span>🏆</span> <span data-i18n="navLeaderboard">Ranking</span>
+      </button>
+      <button onclick="app.navigate('tournaments')" id="mob-nav-tournaments" class="mobile-nav-btn">
+        <span>🏓</span> <span data-i18n="navTournaments">Events</span>
+      </button>
+      <button onclick="app.navigate('h2h')" id="mob-nav-h2h" class="mobile-nav-btn">
+        <span>⚡</span> <span data-i18n="navH2H">H2H</span>
+      </button>
+      <button onclick="app.navigate('board')" id="mob-nav-board" class="mobile-nav-btn">
+        <span>💬</span> <span data-i18n="navBoard">Chat</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="container" style="flex: 1; padding-top: 24px; padding-bottom: 32px;">
+
+    <!-- VIEW 1: LEADERBOARD -->
+    <section id="view-leaderboard" class="space-y-6">
+      <!-- Sporty Court Hero Banner -->
+      <div class="court-card hero-banner">
+        <div>
+          <div class="hero-pill">
+            <span class="pulse-dot"></span> <span data-i18n="badgeOfficial">Singapore Community DUPR / Elo</span>
+          </div>
+          <h1 class="hero-title" data-i18n="lbTitle">SGCourt Pickleball Standings</h1>
+          <p class="hero-sub" data-i18n="lbSubtitle">Standard Pickleball Tournament Exchange · Equal 1500 Baseline · DUPR Equivalents</p>
+        </div>
+
+        <!-- Leaderboard Mode Toggle & Search -->
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <!-- Teams vs Individuals Toggle Pill -->
+          <div class="pill-toggle" style="padding: 4px;">
+            <button onclick="app.setLeaderboardMode('teams')" id="lb-mode-teams" class="pill-btn active" style="padding: 6px 12px; font-size: 12px;">
+              <span>👥</span> <span data-i18n="modeTeams">Teams</span>
+            </button>
+            <button onclick="app.setLeaderboardMode('individuals')" id="lb-mode-individuals" class="pill-btn" style="padding: 6px 12px; font-size: 12px;">
+              <span>👤</span> <span data-i18n="modeIndividuals">Individuals</span>
+            </button>
+          </div>
+
+          <!-- Filter Search -->
+          <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="player-search" oninput="app.filterLeaderboard()" placeholder="Search player / paddle / style..." class="search-input">
+          </div>
+        </div>
+      </div>
+
+      <!-- Top 3 Podium Highlights -->
+      <div class="podium-grid" id="top-podium-cards"></div>
+
+      <!-- Full Player Ranking Table -->
+      <div class="table-wrap">
+        <table class="court-table">
+          <thead>
+            <tr>
+              <th style="text-align: center; width: 64px;" data-i18n="colRank">Rank</th>
+              <th data-i18n="colPlayer">Player</th>
+              <th style="text-align: center;" data-i18n="colDupr">DUPR Level</th>
+              <th style="text-align: center;" data-i18n="colPaddle">Paddle Gear</th>
+              <th style="text-align: center;" data-i18n="colRating">Rating Pts</th>
+              <th style="text-align: center;" data-i18n="colPeak">Peak</th>
+              <th style="text-align: center;" data-i18n="colMatches">Matches (W/L)</th>
+              <th style="text-align: center;" data-i18n="colWinRate">Win Rate</th>
+              <th style="text-align: center;" data-i18n="colAction">Profile</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VIEW 2: TOURNAMENTS & POOL MATRIX -->
+    <section id="view-tournaments" class="space-y-6 hidden">
+      <div class="court-card" style="padding: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
+        <div>
+          <label style="display: block; font-size: 11px; font-weight: 800; color: var(--pb-lime); text-transform: uppercase; margin-bottom: 6px;" data-i18n="selectEdition">Select Pickleball Event</label>
+          <select id="tournament-select" onchange="app.changeTournament()" style="background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 700; outline: none;"></select>
+        </div>
+        <div id="tournament-meta-badge" style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px;"></div>
+      </div>
+
+      <!-- Sub Tabs -->
+      <div class="sub-tabs">
+        <button onclick="app.setTournamentTab('results')" id="ttab-results" class="sub-tab-btn active">
+          <span>📊</span> <span data-i18n="tabStandings">Final Standings & DUPR Deltas</span>
+        </button>
+        <button onclick="app.setTournamentTab('groups')" id="ttab-groups" class="sub-tab-btn">
+          <span>▦</span> <span data-i18n="tabGroups">Pool Play Matrix (Round Robin)</span>
+        </button>
+        <button onclick="app.setTournamentTab('knockout')" id="ttab-knockout" class="sub-tab-btn">
+          <span>🌿</span> <span data-i18n="tabKnockout">Championship Knockout Tree</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: Results & Rating Changes -->
+      <div id="subview-results" class="space-y-4">
+        <div class="table-wrap">
+          <div style="padding: 16px; border-bottom: 1px solid #1e293b; display: flex; align-items: center; justify-content: space-between; background: #0b1120;">
+            <h3 style="font-size: 14px; font-weight: 800; color: #fff;">
+              <span style="color: var(--pb-amber);">🏅</span> <span data-i18n="finalResultsTitle">Tournament Results & Rating Settlement</span>
+            </h3>
+            <span style="font-size: 11px; color: var(--pb-lime); font-weight: 700;" data-i18n="finalResultsSub">Official SGCourt Rules</span>
+          </div>
+          <table class="court-table">
+            <thead>
+              <tr>
+                <th style="text-align: center;" data-i18n="colPlace">Place</th>
+                <th data-i18n="colPlayer">Player</th>
+                <th style="text-align: center;" data-i18n="colInitialRating">Pre-event Pts</th>
+                <th style="text-align: center;" data-i18n="colRatingChange">Rating Δ</th>
+                <th style="text-align: center;" data-i18n="colNewRating">Post-event Pts</th>
+              </tr>
+            </thead>
+            <tbody id="tournament-results-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 2: Pool Play Cross Matrix -->
+      <div id="subview-groups" class="space-y-6 hidden">
+        <div id="group-matrices-container" class="space-y-6"></div>
+      </div>
+
+      <!-- Tab 3: Knockout Medal Rounds -->
+      <div id="subview-knockout" class="space-y-4 hidden">
+        <div class="court-card" style="padding: 24px;" id="knockout-bracket-container"></div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: HEAD TO HEAD -->
+    <section id="view-h2h" class="space-y-6 hidden">
+      <div class="court-card" style="padding: 24px; text-align: center;">
+        <h2 style="font-size: 1.5rem; font-weight: 900; color: #fff; margin-bottom: 6px;" data-i18n="h2hTitle">Head-to-Head Court Clash</h2>
+        <p style="font-size: 13px; color: var(--pb-slate-text); max-width: 520px; margin: 0 auto;" data-i18n="h2hSubtitle">Compare lifetime records, game scores, and win rates between any two pickleball players or teams.</p>
+
+        <!-- Player Selector Grid -->
+        <div style="margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; max-width: 760px; margin-left: auto; margin-right: auto;">
+          <div class="court-card" style="flex: 1; min-width: 240px; padding: 14px; text-align: left; border-color: rgba(163, 230, 53, 0.3);">
+            <label style="font-size: 11px; font-weight: 800; color: var(--pb-lime); text-transform: uppercase; display: block; margin-bottom: 6px;" data-i18n="h2hPlayerA">Player 1</label>
+            <select id="h2h-player-1" onchange="app.renderH2H()" style="width: 100%; background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 8px; padding: 10px; font-size: 13px; font-weight: 700; outline: none;"></select>
+          </div>
+
+          <div style="font-weight: 900; font-size: 18px; color: var(--pb-lime);">
+            <span style="display: inline-block; padding: 6px 12px; border-radius: 9999px; background: #0b1120; border: 1px solid #1e293b; color: #fff; font-size: 11px;">VS</span>
+          </div>
+
+          <div class="court-card" style="flex: 1; min-width: 240px; padding: 14px; text-align: left; border-color: rgba(20, 184, 166, 0.3);">
+            <label style="font-size: 11px; font-weight: 800; color: var(--pb-teal); text-transform: uppercase; display: block; margin-bottom: 6px;" data-i18n="h2hPlayerB">Player 2</label>
+            <select id="h2h-player-2" onchange="app.renderH2H()" style="width: 100%; background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 8px; padding: 10px; font-size: 13px; font-weight: 700; outline: none;"></select>
+          </div>
+        </div>
+      </div>
+
+      <div id="h2h-result-container" class="space-y-6"></div>
+    </section>
+
+    <!-- VIEW 4: COURT CHAT (MESSAGE BOARD) -->
+    <section id="view-board" class="space-y-6 hidden">
+      <div class="court-card hero-banner">
+        <div>
+          <h1 style="font-size: 1.5rem; font-weight: 900; color: #fff; display: flex; align-items: center; gap: 8px;">
+            <span>💬</span> <span data-i18n="boardTitle">Court-side Chat & Community Board</span>
+          </h1>
+          <p style="font-size: 13px; color: var(--pb-slate-text); margin-top: 4px;" data-i18n="boardSubtitle">Connect with local SG pickleball players, review paddles, or share match reflections.</p>
+        </div>
+      </div>
+
+      <!-- Post Form -->
+      <div class="court-card" style="padding: 20px;">
+        <div id="reply-target-indicator" class="hidden" style="align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 8px; background: rgba(163, 230, 53, 0.1); border: 1px solid rgba(163, 230, 53, 0.3); font-size: 12px; margin-bottom: 12px;">
+          <span style="color: var(--pb-lime); font-weight: 700;">
+            ↪ <span data-i18n="replyingTo">Replying to</span>: <strong id="reply-target-author"></strong>
+          </span>
+          <button onclick="app.cancelReply()" style="color: var(--pb-slate-text); font-weight: 600;" data-i18n="cancelReply">Cancel</button>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+          <input type="text" id="msg-nickname" placeholder="Your Call-sign / Name (optional)" style="width: 100%; max-width: 260px; background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 10px; padding: 10px 14px; font-size: 13px; outline: none;">
+        </div>
+        <textarea id="msg-content" rows="3" placeholder="Share a match recap, paddle review, or organize open play..." style="width: 100%; background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 10px; padding: 12px 14px; font-size: 13px; outline: none; resize: vertical;"></textarea>
+        
+        <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+          <button onclick="app.submitMessage()" class="btn-action" style="padding: 8px 18px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px;">
+            <span>🚀</span> <span data-i18n="btnPostMessage">Post to Court</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages Stream -->
+      <div id="board-messages-container" class="space-y-4"></div>
+    </section>
+
+    <!-- Player Profile Modal -->
+    <div id="player-profile-modal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <button onclick="app.closePlayerModal()" class="modal-close-btn">&times;</button>
+        <div id="player-modal-content"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="border-top: 1px solid #1e293b; background: rgba(8, 12, 20, 0.9); padding: 24px 0; text-align: center; font-size: 12px; color: var(--pb-slate-muted);">
+    <div class="container">
+      <p>SGCourt Pickleball Community · Singapore DUPR Competitive & Social Ladder</p>
+      <p style="margin-top: 4px; font-size: 11px;">Standalone Intranet Edition · 100% Offline Compatible (No CDN Required)</p>
+    </div>
+  </footer>
+
+  <!-- Standalone Local Scripts (No CDNs) -->
+  <script src="./js/i18n.js"></script>
+  <script src="./js/rating.js"></script>
+  <script src="./js/mockData.js"></script>
+  <script src="./js/db.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
