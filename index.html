@@ -15,7 +15,7 @@
     <div class="container">
       <div class="header-row">
         <!-- Logo -->
-        <div class="brand-wrap" onclick="app.navigate('leaderboard')">
+        <div class="brand-wrap" id="brand-logo" style="cursor: pointer;">
           <div class="brand-icon">⚡</div>
           <div>
             <div class="brand-title-wrap">
@@ -28,16 +28,16 @@
 
         <!-- Navigation Tabs -->
         <nav class="nav-tabs">
-          <button onclick="app.navigate('leaderboard')" id="nav-leaderboard" class="nav-btn active">
+          <button id="nav-leaderboard" data-nav="leaderboard" class="nav-btn active">
             <span>🏆</span> <span data-i18n="navLeaderboard">Leaderboard</span>
           </button>
-          <button onclick="app.navigate('tournaments')" id="nav-tournaments" class="nav-btn">
+          <button id="nav-tournaments" data-nav="tournaments" class="nav-btn">
             <span>🏓</span> <span data-i18n="navTournaments">Tournaments & Pools</span>
           </button>
-          <button onclick="app.navigate('h2h')" id="nav-h2h" class="nav-btn">
+          <button id="nav-h2h" data-nav="h2h" class="nav-btn">
             <span>⚡</span> <span data-i18n="navH2H">Head-to-Head</span>
           </button>
-          <button onclick="app.navigate('board')" id="nav-board" class="nav-btn">
+          <button id="nav-board" data-nav="board" class="nav-btn">
             <span>💬</span> <span data-i18n="navBoard">Court Chat</span>
           </button>
         </nav>
@@ -46,8 +46,8 @@
         <div style="display: flex; align-items: center; gap: 10px;">
           <!-- Language Toggle Pill -->
           <div class="pill-toggle">
-            <button onclick="app.setLanguage('en')" id="lang-btn-en" class="pill-btn active">EN</button>
-            <button onclick="app.setLanguage('cn')" id="lang-btn-cn" class="pill-btn">中文</button>
+            <button id="lang-btn-en" data-lang="en" class="pill-btn active">EN</button>
+            <button id="lang-btn-cn" data-lang="cn" class="pill-btn">中文</button>
           </div>
         </div>
       </div>
@@ -55,16 +55,16 @@
 
     <!-- Mobile Navigation Bar -->
     <div class="mobile-nav">
-      <button onclick="app.navigate('leaderboard')" id="mob-nav-leaderboard" class="mobile-nav-btn active">
+      <button id="mob-nav-leaderboard" data-nav="leaderboard" class="mobile-nav-btn active">
         <span>🏆</span> <span data-i18n="navLeaderboard">Ranking</span>
       </button>
-      <button onclick="app.navigate('tournaments')" id="mob-nav-tournaments" class="mobile-nav-btn">
+      <button id="mob-nav-tournaments" data-nav="tournaments" class="mobile-nav-btn">
         <span>🏓</span> <span data-i18n="navTournaments">Events</span>
       </button>
-      <button onclick="app.navigate('h2h')" id="mob-nav-h2h" class="mobile-nav-btn">
+      <button id="mob-nav-h2h" data-nav="h2h" class="mobile-nav-btn">
         <span>⚡</span> <span data-i18n="navH2H">H2H</span>
       </button>
-      <button onclick="app.navigate('board')" id="mob-nav-board" class="mobile-nav-btn">
+      <button id="mob-nav-board" data-nav="board" class="mobile-nav-btn">
         <span>💬</span> <span data-i18n="navBoard">Chat</span>
       </button>
     </div>
@@ -89,10 +89,10 @@
         <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
           <!-- Teams vs Individuals Toggle Pill -->
           <div class="pill-toggle" style="padding: 4px;">
-            <button onclick="app.setLeaderboardMode('teams')" id="lb-mode-teams" class="pill-btn active" style="padding: 6px 12px; font-size: 12px;">
+            <button id="lb-mode-teams" data-lb-mode="teams" class="pill-btn active" style="padding: 6px 12px; font-size: 12px;">
               <span>👥</span> <span data-i18n="modeTeams">Teams</span>
             </button>
-            <button onclick="app.setLeaderboardMode('individuals')" id="lb-mode-individuals" class="pill-btn" style="padding: 6px 12px; font-size: 12px;">
+            <button id="lb-mode-individuals" data-lb-mode="individuals" class="pill-btn" style="padding: 6px 12px; font-size: 12px;">
               <span>👤</span> <span data-i18n="modeIndividuals">Individuals</span>
             </button>
           </div>
@@ -100,7 +100,7 @@
           <!-- Filter Search -->
           <div class="search-wrapper">
             <span class="search-icon">🔍</span>
-            <input type="text" id="player-search" oninput="app.filterLeaderboard()" placeholder="Search player / paddle / style..." class="search-input">
+            <input type="text" id="player-search" placeholder="Search player / paddle / style..." class="search-input">
           </div>
         </div>
       </div>
@@ -134,20 +134,20 @@
       <div class="court-card" style="padding: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
         <div>
           <label style="display: block; font-size: 11px; font-weight: 800; color: var(--pb-lime); text-transform: uppercase; margin-bottom: 6px;" data-i18n="selectEdition">Select Pickleball Event</label>
-          <select id="tournament-select" onchange="app.changeTournament()" style="background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 700; outline: none;"></select>
+          <select id="tournament-select" style="background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 700; outline: none;"></select>
         </div>
         <div id="tournament-meta-badge" style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px;"></div>
       </div>
 
       <!-- Sub Tabs -->
       <div class="sub-tabs">
-        <button onclick="app.setTournamentTab('results')" id="ttab-results" class="sub-tab-btn active">
+        <button id="ttab-results" data-ttab="results" class="sub-tab-btn active">
           <span>📊</span> <span data-i18n="tabStandings">Final Standings & DUPR Deltas</span>
         </button>
-        <button onclick="app.setTournamentTab('groups')" id="ttab-groups" class="sub-tab-btn">
+        <button id="ttab-groups" data-ttab="groups" class="sub-tab-btn">
           <span>▦</span> <span data-i18n="tabGroups">Pool Play Matrix (Round Robin)</span>
         </button>
-        <button onclick="app.setTournamentTab('knockout')" id="ttab-knockout" class="sub-tab-btn">
+        <button id="ttab-knockout" data-ttab="knockout" class="sub-tab-btn">
           <span>🌿</span> <span data-i18n="tabKnockout">Championship Knockout Tree</span>
         </button>
       </div>
@@ -197,7 +197,7 @@
         <div style="margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; max-width: 760px; margin-left: auto; margin-right: auto;">
           <div class="court-card" style="flex: 1; min-width: 240px; padding: 14px; text-align: left; border-color: rgba(163, 230, 53, 0.3);">
             <label style="font-size: 11px; font-weight: 800; color: var(--pb-lime); text-transform: uppercase; display: block; margin-bottom: 6px;" data-i18n="h2hPlayerA">Player 1</label>
-            <select id="h2h-player-1" onchange="app.renderH2H()" style="width: 100%; background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 8px; padding: 10px; font-size: 13px; font-weight: 700; outline: none;"></select>
+            <select id="h2h-player-1" style="width: 100%; background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 8px; padding: 10px; font-size: 13px; font-weight: 700; outline: none;"></select>
           </div>
 
           <div style="font-weight: 900; font-size: 18px; color: var(--pb-lime);">
@@ -206,7 +206,7 @@
 
           <div class="court-card" style="flex: 1; min-width: 240px; padding: 14px; text-align: left; border-color: rgba(20, 184, 166, 0.3);">
             <label style="font-size: 11px; font-weight: 800; color: var(--pb-teal); text-transform: uppercase; display: block; margin-bottom: 6px;" data-i18n="h2hPlayerB">Player 2</label>
-            <select id="h2h-player-2" onchange="app.renderH2H()" style="width: 100%; background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 8px; padding: 10px; font-size: 13px; font-weight: 700; outline: none;"></select>
+            <select id="h2h-player-2" style="width: 100%; background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 8px; padding: 10px; font-size: 13px; font-weight: 700; outline: none;"></select>
           </div>
         </div>
       </div>
@@ -231,7 +231,7 @@
           <span style="color: var(--pb-lime); font-weight: 700;">
             ↪ <span data-i18n="replyingTo">Replying to</span>: <strong id="reply-target-author"></strong>
           </span>
-          <button onclick="app.cancelReply()" style="color: var(--pb-slate-text); font-weight: 600;" data-i18n="cancelReply">Cancel</button>
+          <button id="btn-cancel-reply" style="color: var(--pb-slate-text); font-weight: 600;" data-i18n="cancelReply">Cancel</button>
         </div>
 
         <div style="margin-bottom: 10px;">
@@ -240,7 +240,7 @@
         <textarea id="msg-content" rows="3" placeholder="Share a match recap, paddle review, or organize open play..." style="width: 100%; background: #0b1120; border: 1px solid #1e293b; color: #fff; border-radius: 10px; padding: 12px 14px; font-size: 13px; outline: none; resize: vertical;"></textarea>
         
         <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
-          <button onclick="app.submitMessage()" class="btn-action" style="padding: 8px 18px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px;">
+          <button id="btn-submit-msg" class="btn-action" style="padding: 8px 18px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px;">
             <span>🚀</span> <span data-i18n="btnPostMessage">Post to Court</span>
           </button>
         </div>
@@ -251,9 +251,9 @@
     </section>
 
     <!-- Player Profile Modal -->
-    <div id="player-profile-modal" class="modal-overlay hidden" onclick="if(event.target === this) app.closePlayerModal()">
-      <div class="modal-box" onclick="event.stopPropagation()">
-        <button type="button" onclick="app.closePlayerModal()" class="modal-close-btn" title="Close" aria-label="Close">✕</button>
+    <div id="player-profile-modal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <button type="button" id="modal-close-btn" class="modal-close-btn" title="Close" aria-label="Close">✕</button>
         <div id="player-modal-content"></div>
       </div>
     </div>

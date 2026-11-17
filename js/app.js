@@ -18,6 +18,7 @@ class App {
 
   init() {
     try {
+      this.bindEvents();
       this.applyLanguage();
       this.loadData();
       this.renderLeaderboard();
@@ -27,6 +28,111 @@ class App {
     } catch (err) {
       console.error('App init error:', err);
     }
+  }
+
+  bindEvents() {
+    // 1. Brand Logo
+    const brand = document.getElementById('brand-logo');
+    if (brand) {
+      brand.addEventListener('click', () => this.navigate('leaderboard'));
+    }
+
+    // 2. Navigation Tabs (desktop and mobile)
+    document.querySelectorAll('[data-nav]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = e.currentTarget.getAttribute('data-nav');
+        if (target) this.navigate(target);
+      });
+    });
+
+    // 3. Language switcher
+    const btnEn = document.getElementById('lang-btn-en');
+    const btnCn = document.getElementById('lang-btn-cn');
+    if (btnEn) btnEn.addEventListener('click', () => this.setLanguage('en'));
+    if (btnCn) btnCn.addEventListener('click', () => this.setLanguage('cn'));
+
+    // 4. Leaderboard Mode (Teams vs Individuals)
+    const btnTeams = document.getElementById('lb-mode-teams');
+    const btnInds = document.getElementById('lb-mode-individuals');
+    if (btnTeams) btnTeams.addEventListener('click', () => this.setLeaderboardMode('teams'));
+    if (btnInds) btnInds.addEventListener('click', () => this.setLeaderboardMode('individuals'));
+
+    // 5. Leaderboard Search Filter
+    const searchInput = document.getElementById('player-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => this.filterLeaderboard());
+    }
+
+    // 6. Tournament Select & Tabs
+    const tourneySelect = document.getElementById('tournament-select');
+    if (tourneySelect) {
+      tourneySelect.addEventListener('change', () => this.changeTournament());
+    }
+    document.querySelectorAll('[data-ttab]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const tab = e.currentTarget.getAttribute('data-ttab');
+        if (tab) this.setTournamentTab(tab);
+      });
+    });
+
+    // 7. Head-to-Head Selectors
+    const h2h1 = document.getElementById('h2h-player-1');
+    const h2h2 = document.getElementById('h2h-player-2');
+    if (h2h1) h2h1.addEventListener('change', () => this.renderH2H());
+    if (h2h2) h2h2.addEventListener('change', () => this.renderH2H());
+
+    // 8. Board Message Posting & Cancel Reply
+    const btnSubmitMsg = document.getElementById('btn-submit-msg');
+    if (btnSubmitMsg) {
+      btnSubmitMsg.addEventListener('click', () => this.submitMessage());
+    }
+    const btnCancelReply = document.getElementById('btn-cancel-reply');
+    if (btnCancelReply) {
+      btnCancelReply.addEventListener('click', () => this.cancelReply());
+    }
+
+    // 9. Profile Modal Close & Backdrop Click
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', () => this.closePlayerModal());
+    }
+    const modal = document.getElementById('player-profile-modal');
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) this.closePlayerModal();
+      });
+    }
+
+    // 10. Global Event Delegation for Dynamically Rendered Elements
+    document.addEventListener('click', (e) => {
+      // Profile clicks
+      const profileTrigger = e.target.closest('[data-profile-id]');
+      if (profileTrigger) {
+        e.preventDefault();
+        const pid = profileTrigger.getAttribute('data-profile-id');
+        if (pid) this.showPlayerProfile(pid);
+        return;
+      }
+
+      // Message likes
+      const likeTrigger = e.target.closest('[data-like-id]');
+      if (likeTrigger) {
+        e.preventDefault();
+        const mid = likeTrigger.getAttribute('data-like-id');
+        if (mid) this.likeMessage(mid);
+        return;
+      }
+
+      // Message reply targets
+      const replyTrigger = e.target.closest('[data-reply-id]');
+      if (replyTrigger) {
+        e.preventDefault();
+        const mid = replyTrigger.getAttribute('data-reply-id');
+        const author = replyTrigger.getAttribute('data-reply-author') || 'Player';
+        if (mid) this.setReplyTarget(mid, author);
+        return;
+      }
+    });
   }
 
   setLanguage(lang) {
@@ -462,7 +568,7 @@ class App {
       const rankLabels = [this.t('podium1st'), this.t('podium2nd'), this.t('podium3rd')];
 
       podiumContainer.innerHTML = top3.map((p, idx) => `
-        <div class="podium-card ${podiumClasses[idx]}" onclick="app.showPlayerProfile('${p.id}')">
+        <div class="podium-card ${podiumClasses[idx]}" data-profile-id="${p.id}" style="cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 14px;">
             <img src="${p.avatar_url}" alt="${p.name}" class="podium-avatar">
             <div>
@@ -503,7 +609,7 @@ class App {
             <div style="display: flex; align-items: center; gap: 12px;">
               <img src="${p.avatar_url}" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #1e293b;">
               <div>
-                <a href="javascript:void(0)" onclick="app.showPlayerProfile('${p.id}')" style="color: #fff; font-weight: 700;">${p.name}</a>
+                <a href="javascript:void(0)" data-profile-id="${p.id}" style="color: #fff; font-weight: 700;">${p.name}</a>
                 ${subtitle}
               </div>
             </div>
@@ -523,7 +629,7 @@ class App {
             </span>
           </td>
           <td style="text-align: center;">
-            <button onclick="app.showPlayerProfile('${p.id}')" class="btn-action">
+            <button data-profile-id="${p.id}" class="btn-action">
               ${this.t('colAction')}
             </button>
           </td>
@@ -608,7 +714,7 @@ class App {
           <td>
             <div style="display: flex; align-items: center; gap: 10px;">
               <img src="${playerObj.avatar_url}" style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid #1e293b;">
-              <span style="color: #fff; font-weight: 700; cursor: pointer;" onclick="app.showPlayerProfile('${p.player_id}')">${playerObj.name}</span>
+              <span style="color: #fff; font-weight: 700; cursor: pointer;" data-profile-id="${p.player_id}">${playerObj.name}</span>
             </div>
           </td>
           <td style="text-align: center; color: var(--pb-slate-text);">${p.starting_rating}</td>
@@ -1012,11 +1118,11 @@ class App {
               <p style="color: #f1f5f9; font-size: 13px; margin-top: 6px; line-height: 1.5; white-space: pre-wrap;">${this.escapeHtml(post.content)}</p>
 
               <div style="display: flex; align-items: center; gap: 16px; margin-top: 10px; font-size: 12px;">
-                <button onclick="app.likeMessage('${post.id}')" style="color: var(--pb-slate-text); display: inline-flex; align-items: center; gap: 4px; font-weight: 700;">
+                <button data-like-id="${post.id}" style="color: var(--pb-slate-text); display: inline-flex; align-items: center; gap: 4px; font-weight: 700; background: transparent; border: none; cursor: pointer;">
                   <span>✋</span>
                   <span>${post.likes || 0}</span>
                 </button>
-                <button onclick="app.setReplyTarget('${post.id}', '${this.escapeHtml(post.author_name)}')" style="color: var(--pb-lime); display: inline-flex; align-items: center; gap: 4px; font-weight: 700;">
+                <button data-reply-id="${post.id}" data-reply-author="${this.escapeHtml(post.author_name)}" style="color: var(--pb-lime); display: inline-flex; align-items: center; gap: 4px; font-weight: 700; background: transparent; border: none; cursor: pointer;">
                   <span>↪</span>
                   <span>${this.t('btnReply')}</span>
                 </button>
@@ -1039,7 +1145,7 @@ class App {
                       </div>
                       <p style="color: #cbd5e1; font-size: 12px; margin-top: 4px; white-space: pre-wrap;">${this.escapeHtml(r.content)}</p>
                       <div style="display: flex; align-items: center; gap: 12px; margin-top: 6px; font-size: 11px;">
-                        <button onclick="app.likeMessage('${r.id}')" style="color: var(--pb-slate-text); display: inline-flex; align-items: center; gap: 4px; font-weight: 700;">
+                        <button data-like-id="${r.id}" style="color: var(--pb-slate-text); display: inline-flex; align-items: center; gap: 4px; font-weight: 700; background: transparent; border: none; cursor: pointer;">
                           <span>✋</span>
                           <span>${r.likes || 0}</span>
                         </button>
