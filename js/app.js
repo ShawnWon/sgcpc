@@ -16,13 +16,17 @@ class App {
     this.replyTargetId = null;
   }
 
-  async init() {
-    this.applyLanguage();
-    await this.loadData();
-    this.renderLeaderboard();
-    this.initTournamentsSelect();
-    this.initH2HSelect();
-    await this.loadMessages();
+  init() {
+    try {
+      this.applyLanguage();
+      this.loadData();
+      this.renderLeaderboard();
+      this.initTournamentsSelect();
+      this.initH2HSelect();
+      this.loadMessages();
+    } catch (err) {
+      console.error('App init error:', err);
+    }
   }
 
   setLanguage(lang) {
@@ -120,7 +124,7 @@ class App {
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
   }
 
-  async loadData() {
+  loadData() {
     const mock = window.embeddedMockData || { players: [], tournaments: [] };
     this.players = [...(mock.players || [])];
     this.tournaments = [...(mock.tournaments || [])];
@@ -314,11 +318,13 @@ class App {
             opponents: t2Names.join(' & ')
           });
 
+          const titleParts = (tour.title || '').split('-');
+          const tourShort = titleParts.length > 1 ? titleParts[1].trim() : tour.title;
           ind.ratingHistory.push({
             date: m.round_name,
             new_rating: ind.current_rating,
             change: isT1Winner ? delta : -delta,
-            reason: `${tour.title.split('-')[1]?.trim() || ''} ${m.round_name}`
+            reason: `${tourShort} ${m.round_name}`
           });
         });
 
@@ -352,11 +358,13 @@ class App {
             opponents: t1Names.join(' & ')
           });
 
+          const titleParts2 = (tour.title || '').split('-');
+          const tourShort2 = titleParts2.length > 1 ? titleParts2[1].trim() : tour.title;
           ind.ratingHistory.push({
             date: m.round_name,
             new_rating: ind.current_rating,
             change: !isT1Winner ? delta : -delta,
-            reason: `${tour.title.split('-')[1]?.trim() || ''} ${m.round_name}`
+            reason: `${tourShort2} ${m.round_name}`
           });
         });
       });
@@ -538,7 +546,7 @@ class App {
     `).join('');
   }
 
-  async changeTournament() {
+  changeTournament() {
     const sel = document.getElementById('tournament-select');
     if (!sel) return;
     const tid = sel.value;
@@ -794,9 +802,11 @@ class App {
     }
   }
 
-  async renderH2H() {
-    const p1Id = document.getElementById('h2h-player-1')?.value;
-    const p2Id = document.getElementById('h2h-player-2')?.value;
+  renderH2H() {
+    const el1 = document.getElementById('h2h-player-1');
+    const el2 = document.getElementById('h2h-player-2');
+    const p1Id = el1 ? el1.value : '';
+    const p2Id = el2 ? el2.value : '';
     const container = document.getElementById('h2h-result-container');
     if (!container || !p1Id || !p2Id) return;
 
@@ -960,7 +970,7 @@ class App {
     return defaults;
   }
 
-  async loadMessages() {
+  loadMessages() {
     this.messages = this.getLocalMessages();
   }
 
@@ -1153,7 +1163,7 @@ class App {
   }
 
   // --- PLAYER PROFILE MODAL ---
-  async showPlayerProfile(playerId) {
+  showPlayerProfile(playerId) {
     const modal = document.getElementById('player-profile-modal');
     const content = document.getElementById('player-modal-content');
     if (!modal || !content) return;
@@ -1296,6 +1306,11 @@ class App {
 }
 
 window.app = new App();
-window.addEventListener('DOMContentLoaded', () => {
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    window.app.init();
+  });
+} else {
   window.app.init();
-});
+}
