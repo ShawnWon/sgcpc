@@ -635,12 +635,24 @@ table.court-table tbody tr:hover {
   top: 16px;
   right: 16px;
   color: var(--pb-slate-text);
-  font-size: 20px;
-  padding: 4px;
+  font-size: 18px;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #1e293b;
+  border-radius: 8px;
   cursor: pointer;
+  z-index: 10;
+  transition: all 0.15s ease;
 }
 
 .modal-close-btn:hover {
+  background: rgba(244, 63, 94, 0.2);
+  border-color: rgba(244, 63, 94, 0.4);
   color: #fff;
 }
 

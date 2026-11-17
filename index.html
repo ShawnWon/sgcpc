@@ -251,9 +251,9 @@
     </section>
 
     <!-- Player Profile Modal -->
-    <div id="player-profile-modal" class="modal-overlay hidden">
-      <div class="modal-box">
-        <button onclick="app.closePlayerModal()" class="modal-close-btn">&times;</button>
+    <div id="player-profile-modal" class="modal-overlay hidden" onclick="if(event.target === this) app.closePlayerModal()">
+      <div class="modal-box" onclick="event.stopPropagation()">
+        <button type="button" onclick="app.closePlayerModal()" class="modal-close-btn" title="Close" aria-label="Close">✕</button>
         <div id="player-modal-content"></div>
       </div>
     </div>

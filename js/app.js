@@ -1294,6 +1294,7 @@ class App {
 
     modal.classList.remove('hidden');
     modal.classList.add('flex');
+    modal.style.display = 'flex';
   }
 
   closePlayerModal() {
@@ -1301,11 +1302,19 @@ class App {
     if (modal) {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+      modal.style.display = 'none';
     }
   }
 }
 
 window.app = new App();
+
+// Listen for Escape key to close modal
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    window.app.closePlayerModal();
+  }
+});
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
