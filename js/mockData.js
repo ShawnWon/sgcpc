@@ -21,7 +21,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=DarrylBeverly"
+      "avatar_url": ""
     },
     {
       "id": "pb-xd2",
@@ -38,7 +38,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=SamuelKaren"
+      "avatar_url": ""
     },
     {
       "id": "pb-xd3",
@@ -55,7 +55,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=HenryClaudia"
+      "avatar_url": ""
     },
     {
       "id": "pb-xd4",
@@ -72,7 +72,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=AstonPegan"
+      "avatar_url": ""
     },
     {
       "id": "pb-xd5",
@@ -89,7 +89,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=GeromeCheeMinPing"
+      "avatar_url": ""
     },
     {
       "id": "pb-xd6",
@@ -106,7 +106,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=EthanSulastri"
+      "avatar_url": ""
     },
     {
       "id": "pb-xd7",
@@ -123,7 +123,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=SarathSiti"
+      "avatar_url": ""
     },
 
     // Men's Doubles Teams
@@ -142,7 +142,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=JeremyKiatBoon"
+      "avatar_url": ""
     },
     {
       "id": "pb-md2",
@@ -159,7 +159,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=AlvinDarryl"
+      "avatar_url": ""
     },
     {
       "id": "pb-md3",
@@ -176,7 +176,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=RandeepEdwin"
+      "avatar_url": ""
     },
     {
       "id": "pb-md4",
@@ -193,7 +193,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=KennethEddy"
+      "avatar_url": ""
     },
     {
       "id": "pb-md5",
@@ -210,7 +210,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=KwekMeanLuckJordan"
+      "avatar_url": ""
     },
     {
       "id": "pb-md6",
@@ -227,7 +227,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=LionelLamKieSen"
+      "avatar_url": ""
     },
     {
       "id": "pb-md7",
@@ -244,7 +244,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=DonovanKeith"
+      "avatar_url": ""
     },
     {
       "id": "pb-md8",
@@ -261,7 +261,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=AelvinFarhan"
+      "avatar_url": ""
     },
 
     // Women's Doubles Teams
@@ -280,7 +280,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=SulastriSiti"
+      "avatar_url": ""
     },
     {
       "id": "pb-wd2",
@@ -297,7 +297,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=BeverlyChinChin"
+      "avatar_url": ""
     },
     {
       "id": "pb-wd3",
@@ -314,7 +314,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=CheeMinPingLauQiuyu"
+      "avatar_url": ""
     },
     {
       "id": "pb-wd4",
@@ -331,7 +331,7 @@ window.embeddedMockData = {
       "total_losses": 0,
       "dupr_rating": 3.50,
       "skill_level": "Intermediate (3.5+)",
-      "avatar_url": "https://api.dicebear.com/7.x/bottts/svg?seed=ClaudiaKaren"
+      "avatar_url": ""
     }
   ],
   "tournaments": [
