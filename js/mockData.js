@@ -1,5 +1,5 @@
 /**
- * Singapore Court Pickleball Dataset - SG Champion Club
+ * Singapore Club Pickleball Dataset - SG Champion Club
  * All teams start from equal BASELINE_RATING (1500) and DUPR 3.50.
  * Available globally as window.embeddedMockData
  */

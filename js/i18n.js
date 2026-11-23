@@ -13,8 +13,8 @@ window.i18n = {
       navLeaderboard: "Leaderboard",
       navTournaments: "Tournaments & Pools",
       navH2H: "Head-to-Head",
-      navBoard: "Court Chat",
-      dataSourceDemo: "Source: Demo Courts",
+      navBoard: "Club Chat",
+      dataSourceDemo: "Source: Demo Clubs",
       dataSourceSupabase: "Source: Supabase Cloud",
 
       // Leaderboard
@@ -61,28 +61,28 @@ window.i18n = {
       koSetScores: "Game Scores",
 
       // Head to Head
-      h2hTitle: "Head-to-Head Court Clash",
+      h2hTitle: "Head-to-Head Club Clash",
       h2hSubtitle: "Compare lifetime records, game scores, and win rates between any two pickleball players.",
       h2hPlayerA: "Player 1",
       h2hPlayerB: "Player 2",
       h2hVs: "VS",
       h2hTotalEncounters: "Encounters",
       h2hSelectDiff: "Select two different players to compare head-to-head records.",
-      h2hMatchesTitle: "Court Match History",
+      h2hMatchesTitle: "Club Match History",
       h2hNoMatches: "No competitive matches recorded between these two players yet.",
       h2hWon: "Won",
 
-      // Court Chat / Board
-      boardTitle: "Court-side Chat & Community Board",
+      // Club Chat / Board
+      boardTitle: "Club-side Chat & Community Board",
       boardSubtitle: "Connect with local SG pickleball players, organize open-play sessions, review paddles, or leave feedback.",
       boardPlaceholder: "Share a match recap, paddle review, or organize open play...",
       boardNicknamePlaceholder: "Your Call-sign / Name (optional)",
-      btnPostMessage: "Post to Court",
+      btnPostMessage: "Post to Club",
       btnReply: "Reply",
       btnLike: "High Five",
       replyingTo: "Replying to",
       cancelReply: "Cancel",
-      noMessagesYet: "No court chat yet. Grab your paddle and start the talk!",
+      noMessagesYet: "No club chat yet. Grab your paddle and start the talk!",
 
       // Player Profile Modal
       currentRating: "Current Rating",
@@ -90,7 +90,7 @@ window.i18n = {
       totalMatches: "Total Matches",
       winRate: "Win Rate",
       chartTitle: "DUPR / Rating Progression Track",
-      recentMatchesTitle: "Recent Court Battles",
+      recentMatchesTitle: "Recent Club Battles",
       noRecentMatches: "No recent matches recorded.",
       styleLabel: "Play Style",
       paddleLabel: "Paddle",
@@ -104,14 +104,14 @@ window.i18n = {
       navLeaderboard: "总排行榜",
       navTournaments: "巡回赛事 & 分组",
       navH2H: "两两交锋 H2H",
-      navBoard: "球场留言板",
-      dataSourceDemo: "数据源: 演示球场",
+      navBoard: "俱乐部留言板",
+      dataSourceDemo: "数据源: 演示俱乐部",
       dataSourceSupabase: "数据源: Supabase 云端",
 
       // Leaderboard
       badgeOfficial: "新加坡社区 DUPR / Elo 积分",
       lbTitle: "SG Champion Club 匹克球天梯积分总榜",
-      lbSubtitle: "匹克球国际积分算法 · DUPR 水平认证 · 记录新加坡各球场竞技对抗水平",
+      lbSubtitle: "匹克球国际积分算法 · DUPR 水平认证 · 记录新加坡各俱乐部竞技对抗水平",
       modeTeams: "双打战队",
       modeIndividuals: "个人球友",
       colPlayerOrTeam: "选手 / 战队",
@@ -163,17 +163,17 @@ window.i18n = {
       h2hNoMatches: "两位选手暂无正式比赛对阵记录。",
       h2hWon: "胜出",
 
-      // Court Chat / Board
+      // Club Chat / Board
       boardTitle: "SG Champion Club 社区球友留言板",
       boardSubtitle: "欢迎交流截击技巧、讨论 Joola / Selkirk 球拍、约球训练，支持匿名发表与回复。",
-      boardPlaceholder: "发表球场动态、球拍测评或发起约球讨论...",
+      boardPlaceholder: "发表俱乐部动态、球拍测评或发起约球讨论...",
       boardNicknamePlaceholder: "昵称 (选填，留空显示为热心球友)",
-      btnPostMessage: "发布到球场",
+      btnPostMessage: "发布到俱乐部",
       btnReply: "回复",
       btnLike: "碰球拍",
       replyingTo: "正在回复",
       cancelReply: "取消",
-      noMessagesYet: "暂无球场留言，拿起球拍抢先开聊吧！",
+      noMessagesYet: "暂无俱乐部留言，拿起球拍抢先开聊吧！",
 
       // Player Profile Modal
       currentRating: "当前天梯分",

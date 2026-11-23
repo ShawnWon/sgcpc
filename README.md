@@ -16,15 +16,15 @@ Built with **Supabase (Cloud Backend / PostgreSQL)** and **Static Web (HTML5 + V
    - **Pool Play Cross-Matrix**: Round-robin grid showing game scores (e.g., `11-7, 11-8`), game differentials (+/-), and win-loss records.
    - **Championship Knockout Tree**: Visual progression through Semi-Finals, Bronze Match Playoff, and Grand Championship Final (Best of 3, 11-pt win by 2).
    - **Final Standings & DUPR Delta**: Pre-event rating, rating exchange ($\pm \Delta$), and post-event rating.
-3. **Head-to-Head (H2H) Court Clash**:
+3. **Head-to-Head (H2H) Club Clash**:
    - Select any two pickleball players to inspect their lifetime record, game scores, and win rate bar.
-4. **Court-side Chat (Message Board)**:
+4. **Club-side Chat (Message Board)**:
    - Anonymous or signed chat for local players to organize open play, discuss paddles, review tournament games, and give high-fives (likes).
 5. **English & 中文 Language Toggle**:
    - Seamless one-click switch on the top right.
 
 ---
 
-## 🎨 Fresh Court-side Design
-- **Color Palette**: Electric Lime (`#a3e635`), Emerald Court Green (`#10b981`), and Deep Court Navy (`#080c14`).
+## 🎨 Fresh Club-side Design
+- **Color Palette**: Electric Lime (`#a3e635`), Emerald Court Green (`#10b981`), and Deep Club Navy (`#080c14`).
 - **Typography & UI**: High-contrast, sporty athletic cards, pill badges, and glassmorphism designed for mobile and desktop screens.
