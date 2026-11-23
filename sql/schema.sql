@@ -87,6 +87,13 @@ ALTER TABLE tournament_participants ENABLE ROW LEVEL SECURITY;
 ALTER TABLE matches ENABLE ROW LEVEL SECURITY;
 ALTER TABLE messages ENABLE ROW LEVEL SECURITY;
 
+-- Grant table privileges to anon and authenticated roles
+GRANT USAGE ON SCHEMA public TO anon, authenticated;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO anon, authenticated;
+GRANT INSERT, UPDATE ON public.messages TO anon, authenticated;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated;
+
+-- Policies for Row Level Security
 CREATE POLICY "Public read players" ON players FOR SELECT USING (true);
 CREATE POLICY "Public read tournaments" ON tournaments FOR SELECT USING (true);
 CREATE POLICY "Public read participants" ON tournament_participants FOR SELECT USING (true);
