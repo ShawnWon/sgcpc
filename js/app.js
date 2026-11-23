@@ -519,6 +519,18 @@ class App {
       if (mobBtn) mobBtn.classList.toggle('active', v === viewName);
     });
 
+    // Send Google Analytics virtual pageview / view event
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'screen_view', {
+        app_name: 'SG Champion Club',
+        screen_name: viewName
+      });
+      window.gtag('event', 'page_view', {
+        page_title: `SG Champion Club - ${viewName}`,
+        page_path: `#${viewName}`
+      });
+    }
+
     if (viewName === 'tournaments' && !this.activeTournament && this.tournaments.length > 0) {
       this.changeTournament();
     } else if (viewName === 'h2h') {
@@ -1434,6 +1446,15 @@ class App {
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     modal.style.display = 'flex';
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'view_item', {
+        item_name: p.name,
+        item_category: isInd ? 'Individual Player' : 'Team',
+        dupr_rating: p.dupr_rating,
+        current_rating: p.current_rating
+      });
+    }
   }
 
   closePlayerModal() {
