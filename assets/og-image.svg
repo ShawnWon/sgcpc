@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c14" />
+      <stop offset="50%" stop-color="#0b1120" />
+      <stop offset="100%" stop-color="#05080f" />
+    </linearGradient>
+
+    <radialGradient id="glowLime" cx="15%" cy="20%" r="45%">
+      <stop offset="0%" stop-color="#a3e635" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#a3e635" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glowEmerald" cx="85%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="limeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#bef264" />
+      <stop offset="100%" stop-color="#a3e635" />
+    </linearGradient>
+
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <!-- Subtle Drop Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Base Dark Canvas -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#glowLime)"/>
+  <rect width="1200" height="630" fill="url(#glowEmerald)"/>
+
+  <!-- Decorative Pickleball Court Lines Pattern in Background -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="2" fill="none">
+    <rect x="60" y="50" width="1080" height="530" rx="20"/>
+    <line x1="600" y1="50" x2="600" y2="580" stroke-width="4"/>
+    <line x1="380" y1="50" x2="380" y2="580"/>
+    <line x1="820" y1="50" x2="820" y2="580"/>
+    <line x1="60" y1="315" x2="380" y2="315"/>
+    <line x1="820" y1="315" x2="1140" y2="315"/>
+  </g>
+
+  <!-- Left Header / Brand Section -->
+  <g transform="translate(80, 80)">
+    <!-- Pill Badge -->
+    <rect x="0" y="0" width="280" height="36" rx="18" fill="rgba(163, 230, 53, 0.12)" stroke="rgba(163, 230, 53, 0.35)" stroke-width="1.5"/>
+    <circle cx="18" cy="18" r="5" fill="#a3e635"/>
+    <text x="32" y="23" fill="#a3e635" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" letter-spacing="1">SINGAPORE DUPR LEAGUE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="95" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="52" font-weight="900" letter-spacing="-1">
+      SG CHAMPION CLUB
+    </text>
+
+    <!-- Subtitle / DUPR Tag -->
+    <text x="0" y="140" fill="url(#limeGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800">
+      Pickleball Standings &amp; Tournaments
+    </text>
+
+    <text x="0" y="180" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="500">
+      Equal 1500 Elo Baseline · Official DUPR Equivalents · Head-to-Head Clash
+    </text>
+
+    <!-- Stat Highlights Pills -->
+    <g transform="translate(0, 220)">
+      <!-- Pill 1 -->
+      <rect x="0" y="0" width="140" height="60" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="20" y="26" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="700">BASELINE</text>
+      <text x="20" y="48" fill="#a3e635" font-family="sans-serif" font-size="20" font-weight="900">1500 PTS</text>
+
+      <!-- Pill 2 -->
+      <rect x="156" y="0" width="140" height="60" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="176" y="26" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="700">DUPR RATING</text>
+      <text x="176" y="48" fill="#38bdf8" font-family="sans-serif" font-size="20" font-weight="900">3.50 — 4.5+</text>
+
+      <!-- Pill 3 -->
+      <rect x="312" y="0" width="140" height="60" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="332" y="26" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="700">DIVISIONS</text>
+      <text x="332" y="48" fill="#fbbf24" font-family="sans-serif" font-size="20" font-weight="900">MD / WD / XD</text>
+    </g>
+
+    <!-- Bottom Footer Tagline -->
+    <g transform="translate(0, 420)">
+      <circle cx="12" cy="12" r="12" fill="#10b981" opacity="0.2"/>
+      <text x="12" y="16" fill="#10b981" font-family="sans-serif" font-size="12" font-weight="900" text-anchor="middle">✓</text>
+      <text x="34" y="16" fill="#64748b" font-family="sans-serif" font-size="14" font-weight="600">
+        Live Bracket · Round Robin Pool Matrix · Instant Head-to-Head Analytics
+      </text>
+    </g>
+  </g>
+
+  <!-- Right Visual Card (Podium / Trophy Card Preview) -->
+  <g transform="translate(680, 75)" filter="url(#shadow)">
+    <!-- Main Card Body -->
+    <rect x="0" y="0" width="440" height="475" rx="24" fill="url(#cardGrad)" stroke="rgba(163, 230, 53, 0.35)" stroke-width="2"/>
+
+    <!-- Card Header -->
+    <g transform="translate(28, 30)">
+      <rect x="0" y="0" width="48" height="48" rx="14" fill="rgba(163, 230, 53, 0.15)"/>
+      <text x="24" y="32" font-size="24" text-anchor="middle">🏆</text>
+
+      <text x="62" y="22" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="900">LEADERBOARD TOP RANK</text>
+      <text x="62" y="40" fill="#a3e635" font-family="sans-serif" font-size="12" font-weight="700">Men's &amp; Mixed Champions</text>
+    </g>
+
+    <!-- Row 1 (Gold No. 1) -->
+    <g transform="translate(24, 105)">
+      <rect x="0" y="0" width="392" height="96" rx="16" fill="rgba(251, 191, 36, 0.08)" stroke="rgba(251, 191, 36, 0.35)" stroke-width="1.5"/>
+      <!-- Gold Badge -->
+      <circle cx="36" cy="48" r="20" fill="url(#goldGrad)"/>
+      <text x="36" y="55" fill="#000000" font-family="sans-serif" font-size="18" font-weight="900" text-anchor="middle">1</text>
+
+      <!-- Player Info -->
+      <text x="72" y="40" fill="#ffffff" font-family="sans-serif" font-size="17" font-weight="800">MD3 (Randeep / Edwin)</text>
+      <text x="72" y="62" fill="#a3e635" font-family="sans-serif" font-size="12" font-weight="700">DUPR 4.25 · Selkirk Power Air</text>
+
+      <!-- Score/Points -->
+      <text x="368" y="44" fill="#a3e635" font-family="sans-serif" font-size="24" font-weight="900" text-anchor="end">1578</text>
+      <text x="368" y="62" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">+78 Pts</text>
+    </g>
+
+    <!-- Row 2 (Silver No. 2) -->
+    <g transform="translate(24, 215)">
+      <rect x="0" y="0" width="392" height="90" rx="16" fill="#0b1120" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="36" cy="45" r="18" fill="#94a3b8"/>
+      <text x="36" y="51" fill="#0b1120" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="middle">2</text>
+
+      <text x="72" y="38" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="800">XD3 (Henry / Claudia)</text>
+      <text x="72" y="58" fill="#38bdf8" font-family="sans-serif" font-size="12" font-weight="700">DUPR 4.10 · Joola Perseus</text>
+
+      <text x="368" y="42" fill="#a3e635" font-family="sans-serif" font-size="22" font-weight="900" text-anchor="end">1566</text>
+      <text x="368" y="60" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">+66 Pts</text>
+    </g>
+
+    <!-- Row 3 (Bronze No. 3) -->
+    <g transform="translate(24, 318)">
+      <rect x="0" y="0" width="392" height="90" rx="16" fill="#0b1120" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="36" cy="45" r="18" fill="#b45309"/>
+      <text x="36" y="51" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="middle">3</text>
+
+      <text x="72" y="38" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="800">WD4 (Claudia / Karen)</text>
+      <text x="72" y="58" fill="#ec4899" font-family="sans-serif" font-size="12" font-weight="700">DUPR 3.95 · CRBN 1X Power</text>
+
+      <text x="368" y="42" fill="#a3e635" font-family="sans-serif" font-size="22" font-weight="900" text-anchor="end">1548</text>
+      <text x="368" y="60" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="end">+48 Pts</text>
+    </g>
+
+    <!-- Micro Sparkline SVG in Card -->
+    <g transform="translate(28, 422)">
+      <path d="M 0 24 Q 90 2 180 18 T 385 4" fill="none" stroke="#a3e635" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="385" cy="4" r="4" fill="#a3e635"/>
+    </g>
+  </g>
+</svg>
