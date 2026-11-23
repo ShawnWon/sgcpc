@@ -4,8 +4,8 @@
  */
 
 window.SupabaseConfig = {
-  url: localStorage.getItem('sgcourt_sb_url') || '',
-  anonKey: localStorage.getItem('sgcourt_sb_key') || ''
+  url: localStorage.getItem('sgcourt_sb_url') || 'https://djgfcljhzfxudhaxgpsy.supabase.co',
+  anonKey: localStorage.getItem('sgcourt_sb_key') || 'sb_publishable_XhzLIMw-g25b3cXqTaAGgw__SGnx322'
 };
 
 class DataService {

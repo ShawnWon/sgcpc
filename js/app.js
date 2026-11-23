@@ -1076,8 +1076,18 @@ class App {
     return defaults;
   }
 
-  loadMessages() {
+  async loadMessages() {
+    if (window.db) {
+      try {
+        this.messages = await window.db.getMessages();
+        this.renderMessages();
+        return;
+      } catch (err) {
+        console.warn('Failed to load messages from db, falling back to local:', err);
+      }
+    }
     this.messages = this.getLocalMessages();
+    this.renderMessages();
   }
 
   saveLocalMessages(msgs) {
@@ -1195,6 +1205,19 @@ class App {
     if (!content) return;
 
     const nickname = nickInput ? nickInput.value.trim() : '';
+
+    if (window.db) {
+      try {
+        await window.db.addMessage(nickname, content, this.replyTargetId || null);
+        contentInput.value = '';
+        this.cancelReply();
+        await this.loadMessages();
+        return;
+      } catch (err) {
+        console.warn('Failed to add message to db, saving locally:', err);
+      }
+    }
+
     const newMsg = {
       id: 'sgmsg-' + Date.now(),
       author_name: nickname || 'Anonymous Baller',
@@ -1214,6 +1237,16 @@ class App {
   }
 
   async likeMessage(id) {
+    if (window.db) {
+      try {
+        await window.db.likeMessage(id);
+        await this.loadMessages();
+        return;
+      } catch (err) {
+        console.warn('Failed to like message in db, updating locally:', err);
+      }
+    }
+
     const msgs = this.getLocalMessages();
     const target = msgs.find(m => m.id === id);
     if (target) {
