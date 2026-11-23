@@ -1,5 +1,5 @@
 /**
- * Singapore Court Pickleball Dataset
+ * Singapore Court Pickleball Dataset - SG Champion Club
  * All teams start from equal BASELINE_RATING (1500) and DUPR 3.50.
  * Available globally as window.embeddedMockData
  */
@@ -338,9 +338,9 @@ window.embeddedMockData = {
     // 1. Mixed Doubles
     {
       "id": "tour-sg-2026-xd",
-      "title": "SG Courts Pickleball Tournament 2026 - Mixed Doubles",
+      "title": "SG Champion Club Pickleball Tournament 2026 - Mixed Doubles",
       "tournament_date": "2026-11-17",
-      "location": "SG Courts Complex (Singapore)",
+      "location": "SG Champion Club Complex (Singapore)",
       "status": "completed",
       "format": "Single Elimination Knockout (Play 15 Points 1 Set, No Deuce at 14-14)",
       "groups": ["Court 3 & 4 Main Draw"],
@@ -438,9 +438,9 @@ window.embeddedMockData = {
     // 2. Men's Doubles
     {
       "id": "tour-sg-2026-md",
-      "title": "SG Courts Pickleball Tournament 2026 - Men's Doubles",
+      "title": "SG Champion Club Pickleball Tournament 2026 - Men's Doubles",
       "tournament_date": "2026-11-17",
-      "location": "SG Courts Complex (Singapore)",
+      "location": "SG Champion Club Complex (Singapore)",
       "status": "completed",
       "format": "Single Elimination Knockout (Play 15 Points 1 Set, No Deuce at 14-14)",
       "groups": ["Court 1 & 2 Main Draw"],
@@ -552,9 +552,9 @@ window.embeddedMockData = {
     // 3. Women's Doubles
     {
       "id": "tour-sg-2026-wd",
-      "title": "SG Courts Pickleball Tournament 2026 - Women's Doubles",
+      "title": "SG Champion Club Pickleball Tournament 2026 - Women's Doubles",
       "tournament_date": "2026-11-17",
-      "location": "SG Courts Complex (Singapore)",
+      "location": "SG Champion Club Complex (Singapore)",
       "status": "completed",
       "format": "Single Elimination Knockout (Play 11 Points 1 Set, No Deuce at 10-10)",
       "groups": ["Court 3 & 4 Main Draw"],

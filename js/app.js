@@ -1,5 +1,5 @@
 /**
- * SGCourt Pickleball Frontend Controller
+ * SG Champion Club Pickleball Frontend Controller
  * 100% Standalone & Offline Ready (Zero external CDN/API dependencies)
  */
 

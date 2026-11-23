@@ -1,6 +1,6 @@
-# SGCourt - Singapore Pickleball DUPR Community League
+# SG Champion Club - Singapore Pickleball DUPR Community League
 
-**SGCourt** is a modern, responsive web application for Singapore's local pickleball groups, clubs, and competitive ladders. Inspired by DUPR (Dynamic Universal Pickleball Rating) and tournament bracket systems.
+**SG Champion Club** is a modern, responsive web application for Singapore's local pickleball groups, clubs, and competitive ladders. Inspired by DUPR (Dynamic Universal Pickleball Rating) and tournament bracket systems.
 
 Built with **Supabase (Cloud Backend / PostgreSQL)** and **Static Web (HTML5 + Vanilla JS + Tailwind CSS)**. Ready to deploy globally on Cloudflare Pages, GitHub Pages, or Vercel.
 

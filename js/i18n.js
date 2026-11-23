@@ -1,5 +1,5 @@
 /**
- * Multi-language (i18n) for SGCourt Pickleball
+ * Multi-language (i18n) for SG Champion Club Pickleball
  * Available globally as window.i18n
  */
 
@@ -8,7 +8,7 @@ window.i18n = {
 
   translations: {
     en: {
-      appTitle: "SGCourt",
+      appTitle: "SG Champion Club",
       appSubtitle: "Pickleball DUPR Community League",
       navLeaderboard: "Leaderboard",
       navTournaments: "Tournaments & Pools",
@@ -19,7 +19,7 @@ window.i18n = {
 
       // Leaderboard
       badgeOfficial: "Singapore Community DUPR / Elo",
-      lbTitle: "SGCourt Pickleball Standings",
+      lbTitle: "SG Champion Club Pickleball Standings",
       lbSubtitle: "Standard Pickleball Tournament Exchange · DUPR Equivalents · Singapore Competitive & Social Ladder",
       modeTeams: "Teams / Pairs",
       modeIndividuals: "Individuals",
@@ -45,7 +45,7 @@ window.i18n = {
       tabKnockout: "Championship Knockout Tree",
       statusCompleted: "Finalized",
       finalResultsTitle: "Tournament Results & Rating Settlement",
-      finalResultsSub: "Official SGCourt Rules",
+      finalResultsSub: "Official SG Champion Club Rules",
       colPlace: "Place",
       colInitialRating: "Pre-event Pts",
       colRatingChange: "Rating Δ",
@@ -99,7 +99,7 @@ window.i18n = {
     },
 
     cn: {
-      appTitle: "SGCourt",
+      appTitle: "SG Champion Club",
       appSubtitle: "新加坡匹克球 DUPR 积分联盟",
       navLeaderboard: "总排行榜",
       navTournaments: "巡回赛事 & 分组",
@@ -110,7 +110,7 @@ window.i18n = {
 
       // Leaderboard
       badgeOfficial: "新加坡社区 DUPR / Elo 积分",
-      lbTitle: "SGCourt 匹克球天梯积分总榜",
+      lbTitle: "SG Champion Club 匹克球天梯积分总榜",
       lbSubtitle: "匹克球国际积分算法 · DUPR 水平认证 · 记录新加坡各球场竞技对抗水平",
       modeTeams: "双打战队",
       modeIndividuals: "个人球友",
@@ -136,7 +136,7 @@ window.i18n = {
       tabKnockout: "淘汰奖牌树状图",
       statusCompleted: "已完赛",
       finalResultsTitle: "赛事最终结算成绩单",
-      finalResultsSub: "SGCourt 赛事规则核算完毕",
+      finalResultsSub: "SG Champion Club 赛事规则核算完毕",
       colPlace: "排名",
       colInitialRating: "赛前积分",
       colRatingChange: "积分变动 (Δ)",
@@ -164,7 +164,7 @@ window.i18n = {
       h2hWon: "胜出",
 
       // Court Chat / Board
-      boardTitle: "SGCourt 社区球友留言板",
+      boardTitle: "SG Champion Club 社区球友留言板",
       boardSubtitle: "欢迎交流截击技巧、讨论 Joola / Selkirk 球拍、约球训练，支持匿名发表与回复。",
       boardPlaceholder: "发表球场动态、球拍测评或发起约球讨论...",
       boardNicknamePlaceholder: "昵称 (选填，留空显示为热心球友)",
