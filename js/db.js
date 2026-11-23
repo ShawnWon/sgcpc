@@ -282,6 +282,36 @@ class DataService {
   }
 
   async likeMessage(messageId) {
+    if (this.isSupabaseConfigured) {
+      try {
+        // Fetch current message from Supabase to get latest likes count
+        const { data, error } = await this.client
+          .from('messages')
+          .select('likes')
+          .eq('id', messageId)
+          .single();
+
+        if (!error && data) {
+          const newLikes = (data.likes || 0) + 1;
+          const updateRes = await this.client
+            .from('messages')
+            .update({ likes: newLikes })
+            .eq('id', messageId)
+            .select();
+
+          if (!updateRes.error) {
+            return newLikes;
+          } else {
+            console.warn('Supabase update like error:', updateRes.error);
+          }
+        } else {
+          console.warn('Supabase fetch like target error:', error);
+        }
+      } catch (err) {
+        console.warn('Supabase likeMessage exception:', err);
+      }
+    }
+
     const current = await this.getMessages();
     const msg = current.find(m => m.id === messageId);
     if (msg) {

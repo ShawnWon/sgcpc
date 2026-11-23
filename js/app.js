@@ -1249,6 +1249,14 @@ class App {
   }
 
   async likeMessage(id) {
+    // 1. Optimistic UI update: immediately bump count in memory and re-render
+    const target = (this.messages || []).find(m => m.id === id);
+    if (target) {
+      target.likes = (target.likes || 0) + 1;
+      this.renderMessages();
+    }
+
+    // 2. Persist to Supabase if available
     if (window.db) {
       try {
         await window.db.likeMessage(id);
@@ -1259,10 +1267,11 @@ class App {
       }
     }
 
+    // 3. Fallback to localStorage
     const msgs = this.getLocalMessages();
-    const target = msgs.find(m => m.id === id);
-    if (target) {
-      target.likes = (target.likes || 0) + 1;
+    const localTarget = msgs.find(m => m.id === id);
+    if (localTarget) {
+      localTarget.likes = (localTarget.likes || 0) + 1;
       this.saveLocalMessages(msgs);
       this.renderMessages();
     }
