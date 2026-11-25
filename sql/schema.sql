@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS players (
     name VARCHAR(100) NOT NULL,
     avatar_url TEXT DEFAULT '',
     gender VARCHAR(10) DEFAULT 'M',
-    dupr_rating NUMERIC(3,2) DEFAULT 3.50,          -- e.g. 4.85, 3.75
+    dupr_rating NUMERIC(3,2) DEFAULT 2.50,          -- e.g. 4.85, 3.75
     skill_level VARCHAR(50) DEFAULT 'Intermediate',  -- 'Club Player', 'Intermediate', 'Advanced', 'Pro'
     paddle_model VARCHAR(100) DEFAULT 'Selkirk Vanguard Power Air',
     play_style VARCHAR(100) DEFAULT 'Dink & Reset Specialist',

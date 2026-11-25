@@ -14,25 +14,25 @@ ON CONFLICT (id) DO NOTHING;
 -- 2. Seed Players & Teams
 INSERT INTO players (id, name, gender, dupr_rating, skill_level, paddle_model, play_style, initial_rating, current_rating, peak_rating, total_matches, total_wins, total_losses)
 VALUES
-  ('a8bc0cf0-d1fb-9ef7-9e55-4da1b99412c9', 'XD1 (Darryl / Beverly)', 'Mixed', 3.50, 'Intermediate (3.5+)', 'Selkirk Vanguard Control', 'Aggressive Stacking & Cross Dinks', 1500, 1500, 1500, 0, 0, 0),
-  ('c451ef6c-faf3-4cde-db1e-0d48d949debc', 'XD2 (Samuel / Karen)', 'Mixed', 3.50, 'Intermediate (3.5+)', 'Gamma Micron 2.0', 'Transition Resets & Steady Serving', 1500, 1500, 1500, 0, 0, 0),
-  ('03e9632a-3fec-513d-fc42-3e5ef7152a45', 'XD3 (Henry / Claudia)', 'Mixed', 3.50, 'Intermediate (3.5+)', 'Joola Ben Johns Perseus 16mm', 'Stealth Resets & Ruthless Speedups', 1500, 1500, 1500, 0, 0, 0),
-  ('0e1b83a6-dbe1-2017-57a3-2b52f3e79c26', 'XD4 (Aston / Pegan)', 'Mixed', 3.50, 'Intermediate (3.5+)', 'Babolat RNGD Power', 'Flat Drives & Active Net Play', 1500, 1500, 1500, 0, 0, 0),
-  ('cc16c4e2-650f-1fcb-35ae-ca81fd389c5e', 'XD5 (Gerome / Chee Min Ping)', 'Mixed', 3.50, 'Intermediate (3.5+)', 'Six Zero Double Black Diamond', 'Solid Third-Shot Drops & Consistent Resets', 1500, 1500, 1500, 0, 0, 0),
-  ('65211422-25f1-3132-7743-299992b2630f', 'XD6 (Ethan / Sulastri)', 'Mixed', 3.50, 'Intermediate (3.5+)', 'Joola Hyperion CFS 16', 'Sharp Angles & Baseline Consistency', 1500, 1500, 1500, 0, 0, 0),
-  ('3dad1628-4c8c-bfb5-f171-550aaabe69cb', 'XD7 (Sarath / Siti)', 'Mixed', 3.50, 'Intermediate (3.5+)', 'CRBN 2X Square', 'Control & Safe Drops', 1500, 1500, 1500, 0, 0, 0),
-  ('c2effc88-02ee-8070-832f-0168edc93145', 'MD1 (Jeremy / Kiat Boon)', 'M', 3.50, 'Intermediate (3.5+)', 'Franklin Signature Aluminum', 'High Energy Baseline Running', 1500, 1500, 1500, 0, 0, 0),
-  ('46fd7a4c-0aea-1c09-c04b-dae5659c86cd', 'MD2 (Alvin / Darryl)', 'M', 3.50, 'Intermediate (3.5+)', 'Franklin Sports Pro Series', 'Power Baseline Drives & Ernes', 1500, 1500, 1500, 0, 0, 0),
-  ('6d7786cc-7f19-17d7-a994-543ef24b5340', 'MD3 (Randeep / Edwin)', 'M', 3.50, 'Intermediate (3.5+)', 'Selkirk Vanguard Power Air', 'Dominant Kitchen Control & Fast Counters', 1500, 1500, 1500, 0, 0, 0),
-  ('712bed5d-00fb-532c-d558-685ab25aa83f', 'MD4 (Kenneth / Eddy)', 'M', 3.50, 'Intermediate (3.5+)', 'Paddletek Bantam TS-5 Pro', 'Heavy Topspin Drives & Poaching', 1500, 1500, 1500, 0, 0, 0),
-  ('a883679f-dfb6-3490-67d2-f545fecf6ff0', 'MD5 (Kwek Mean Luck / Jordan)', 'M', 3.50, 'Intermediate (3.5+)', 'Head Radical Elite', 'Clutch Net Battles & High Defense', 1500, 1500, 1500, 0, 0, 0),
-  ('c26b338e-4c21-4f73-85da-a061c90a1ce9', 'MD6 (Lionel / Lam Kie Sen)', 'M', 3.50, 'Intermediate (3.5+)', 'Wilson Echo Team', 'Consistent Lobs & Touch Volleys', 1500, 1500, 1500, 0, 0, 0),
-  ('98034f56-d83d-f06e-4fa7-f5cd2dcd2bcd', 'MD7 (Donovan / Keith)', 'M', 3.50, 'Intermediate (3.5+)', 'Gearbox Pro Power Elongated', 'Baseline Rallies & Passing Shots', 1500, 1500, 1500, 0, 0, 0),
-  ('31b50d64-b3ef-605b-7295-6dcf8d9175ba', 'MD8 (Aelvin / Farhan)', 'M', 3.50, 'Intermediate (3.5+)', 'Diadem Warrior Edge', 'High Intensity & Explosive Smashes', 1500, 1500, 1500, 0, 0, 0),
-  ('cf305d8d-88b3-4a5a-f378-326eb1018ec5', 'WD1 (Sulastri / Siti)', 'F', 3.50, 'Intermediate (3.5+)', 'Pro Kennex Kinetic Pro', 'Steady Dinking & Defensive Blocking', 1500, 1500, 1500, 0, 0, 0),
-  ('4ddb6c89-cd69-b98d-2eca-df77f141cf62', 'WD2 (Beverly / Chin Chin)', 'F', 3.50, 'Intermediate (3.5+)', 'Engage Pursuit EX 6.0', 'Deep Returns & Soft Dinking', 1500, 1500, 1500, 0, 0, 0),
-  ('ef11272f-1041-7214-8f0f-2b70003a2630', 'WD3 (Chee Min Ping / Lau Qiuyu)', 'F', 3.50, 'Intermediate (3.5+)', 'Six Zero Sapphire', 'Patience & Deep Placements', 1500, 1500, 1500, 0, 0, 0),
-  ('c31addab-aa59-6e04-c569-579e19ac0079', 'WD4 (Claudia / Karen)', 'F', 3.50, 'Intermediate (3.5+)', 'CRBN 1X Power Series', 'Aggressive Kitchen Attacks & Fast Hands', 1500, 1500, 1500, 0, 0, 0)
+  ('a8bc0cf0-d1fb-9ef7-9e55-4da1b99412c9', 'XD1 (Darryl / Beverly)', 'Mixed', 2.50, 'Novice / Beginner (2.5+)', 'Selkirk Vanguard Control', 'Aggressive Stacking & Cross Dinks', 1500, 1500, 1500, 0, 0, 0),
+  ('c451ef6c-faf3-4cde-db1e-0d48d949debc', 'XD2 (Samuel / Karen)', 'Mixed', 2.50, 'Novice / Beginner (2.5+)', 'Gamma Micron 2.0', 'Transition Resets & Steady Serving', 1500, 1500, 1500, 0, 0, 0),
+  ('03e9632a-3fec-513d-fc42-3e5ef7152a45', 'XD3 (Henry / Claudia)', 'Mixed', 2.50, 'Novice / Beginner (2.5+)', 'Joola Ben Johns Perseus 16mm', 'Stealth Resets & Ruthless Speedups', 1500, 1500, 1500, 0, 0, 0),
+  ('0e1b83a6-dbe1-2017-57a3-2b52f3e79c26', 'XD4 (Aston / Pegan)', 'Mixed', 2.50, 'Novice / Beginner (2.5+)', 'Babolat RNGD Power', 'Flat Drives & Active Net Play', 1500, 1500, 1500, 0, 0, 0),
+  ('cc16c4e2-650f-1fcb-35ae-ca81fd389c5e', 'XD5 (Gerome / Chee Min Ping)', 'Mixed', 2.50, 'Novice / Beginner (2.5+)', 'Six Zero Double Black Diamond', 'Solid Third-Shot Drops & Consistent Resets', 1500, 1500, 1500, 0, 0, 0),
+  ('65211422-25f1-3132-7743-299992b2630f', 'XD6 (Ethan / Sulastri)', 'Mixed', 2.50, 'Novice / Beginner (2.5+)', 'Joola Hyperion CFS 16', 'Sharp Angles & Baseline Consistency', 1500, 1500, 1500, 0, 0, 0),
+  ('3dad1628-4c8c-bfb5-f171-550aaabe69cb', 'XD7 (Sarath / Siti)', 'Mixed', 2.50, 'Novice / Beginner (2.5+)', 'CRBN 2X Square', 'Control & Safe Drops', 1500, 1500, 1500, 0, 0, 0),
+  ('c2effc88-02ee-8070-832f-0168edc93145', 'MD1 (Jeremy / Kiat Boon)', 'M', 2.50, 'Novice / Beginner (2.5+)', 'Franklin Signature Aluminum', 'High Energy Baseline Running', 1500, 1500, 1500, 0, 0, 0),
+  ('46fd7a4c-0aea-1c09-c04b-dae5659c86cd', 'MD2 (Alvin / Darryl)', 'M', 2.50, 'Novice / Beginner (2.5+)', 'Franklin Sports Pro Series', 'Power Baseline Drives & Ernes', 1500, 1500, 1500, 0, 0, 0),
+  ('6d7786cc-7f19-17d7-a994-543ef24b5340', 'MD3 (Randeep / Edwin)', 'M', 2.50, 'Novice / Beginner (2.5+)', 'Selkirk Vanguard Power Air', 'Dominant Kitchen Control & Fast Counters', 1500, 1500, 1500, 0, 0, 0),
+  ('712bed5d-00fb-532c-d558-685ab25aa83f', 'MD4 (Kenneth / Eddy)', 'M', 2.50, 'Novice / Beginner (2.5+)', 'Paddletek Bantam TS-5 Pro', 'Heavy Topspin Drives & Poaching', 1500, 1500, 1500, 0, 0, 0),
+  ('a883679f-dfb6-3490-67d2-f545fecf6ff0', 'MD5 (Kwek Mean Luck / Jordan)', 'M', 2.50, 'Novice / Beginner (2.5+)', 'Head Radical Elite', 'Clutch Net Battles & High Defense', 1500, 1500, 1500, 0, 0, 0),
+  ('c26b338e-4c21-4f73-85da-a061c90a1ce9', 'MD6 (Lionel / Lam Kie Sen)', 'M', 2.50, 'Novice / Beginner (2.5+)', 'Wilson Echo Team', 'Consistent Lobs & Touch Volleys', 1500, 1500, 1500, 0, 0, 0),
+  ('98034f56-d83d-f06e-4fa7-f5cd2dcd2bcd', 'MD7 (Donovan / Keith)', 'M', 2.50, 'Novice / Beginner (2.5+)', 'Gearbox Pro Power Elongated', 'Baseline Rallies & Passing Shots', 1500, 1500, 1500, 0, 0, 0),
+  ('31b50d64-b3ef-605b-7295-6dcf8d9175ba', 'MD8 (Aelvin / Farhan)', 'M', 2.50, 'Novice / Beginner (2.5+)', 'Diadem Warrior Edge', 'High Intensity & Explosive Smashes', 1500, 1500, 1500, 0, 0, 0),
+  ('cf305d8d-88b3-4a5a-f378-326eb1018ec5', 'WD1 (Sulastri / Siti)', 'F', 2.50, 'Novice / Beginner (2.5+)', 'Pro Kennex Kinetic Pro', 'Steady Dinking & Defensive Blocking', 1500, 1500, 1500, 0, 0, 0),
+  ('4ddb6c89-cd69-b98d-2eca-df77f141cf62', 'WD2 (Beverly / Chin Chin)', 'F', 2.50, 'Novice / Beginner (2.5+)', 'Engage Pursuit EX 6.0', 'Deep Returns & Soft Dinking', 1500, 1500, 1500, 0, 0, 0),
+  ('ef11272f-1041-7214-8f0f-2b70003a2630', 'WD3 (Chee Min Ping / Lau Qiuyu)', 'F', 2.50, 'Novice / Beginner (2.5+)', 'Six Zero Sapphire', 'Patience & Deep Placements', 1500, 1500, 1500, 0, 0, 0),
+  ('c31addab-aa59-6e04-c569-579e19ac0079', 'WD4 (Claudia / Karen)', 'F', 2.50, 'Novice / Beginner (2.5+)', 'CRBN 1X Power Series', 'Aggressive Kitchen Attacks & Fast Hands', 1500, 1500, 1500, 0, 0, 0)
 ON CONFLICT (id) DO UPDATE SET
   current_rating = EXCLUDED.current_rating, peak_rating = EXCLUDED.peak_rating;
 

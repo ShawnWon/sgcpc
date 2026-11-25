@@ -290,8 +290,8 @@ class App {
           total_losses: 0,
           points_scored: 0,
           points_conceded: 0,
-          dupr_rating: 3.50,
-          skill_level: 'Intermediate (3.5+)',
+          dupr_rating: 2.50,
+          skill_level: 'Novice / Beginner (2.5+)',
           teams: new Set(),
           matchRecords: [],
           ratingHistory: [

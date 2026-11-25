@@ -1,4 +1,4 @@
-Add-Type -AssemblyName System.Drawing
+﻿Add-Type -AssemblyName System.Drawing
 
 $width = 1200
 $height = 630
@@ -80,7 +80,7 @@ function Draw-StatBox($x, $y, $w, $h, $label, $val, $valColor) {
 }
 
 Draw-StatBox 80 300 150 72 "BASELINE" "1500 PTS" $lime
-Draw-StatBox 245 300 150 72 "DUPR LEVEL" "3.50 - 4.5+" $sky
+Draw-StatBox 245 300 150 72 "DUPR LEVEL" "2.50 - 4.0+" $sky
 Draw-StatBox 410 300 150 72 "DIVISIONS" "MD / WD / XD" $gold
 
 # Bottom features

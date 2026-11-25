@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Singapore Club Pickleball Dataset - SG Champion Club
- * All teams start from equal BASELINE_RATING (1500) and DUPR 3.50.
+ * All teams start from equal BASELINE_RATING (1500) and DUPR 2.50.
  * Available globally as window.embeddedMockData
  */
 window.embeddedMockData = {
@@ -19,8 +19,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -36,8 +36,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -53,8 +53,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -70,8 +70,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -87,8 +87,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -104,8 +104,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -121,8 +121,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
 
@@ -140,8 +140,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -157,8 +157,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -174,8 +174,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -191,8 +191,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -208,8 +208,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -225,8 +225,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -242,8 +242,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -259,8 +259,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
 
@@ -278,8 +278,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -295,8 +295,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -312,8 +312,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     },
     {
@@ -329,8 +329,8 @@ window.embeddedMockData = {
       "total_matches": 0,
       "total_wins": 0,
       "total_losses": 0,
-      "dupr_rating": 3.50,
-      "skill_level": "Intermediate (3.5+)",
+      "dupr_rating": 2.50,
+      "skill_level": "Novice / Beginner (2.5+)",
       "avatar_url": ""
     }
   ],

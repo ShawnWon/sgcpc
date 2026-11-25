@@ -36,12 +36,12 @@ window.RatingCalculator = {
   },
 
   /**
-   * Convert Elo rating points to standard DUPR equivalent (2.50 to 5.50 scale)
-   * Benchmark: 1500 rating = 3.50 DUPR
+   * Convert Elo rating points to standard DUPR equivalent (2.00 to 6.00 scale)
+   * Benchmark: 1500 rating = 2.50 DUPR
    * Every 100 Elo points = ~0.35 DUPR
    */
   ratingToDupr(rating) {
-    const dupr = 3.50 + ((rating - this.BASELINE_RATING) / 100) * 0.35;
+    const dupr = 2.50 + ((rating - this.BASELINE_RATING) / 100) * 0.35;
     return Math.max(2.0, Math.min(6.0, parseFloat(dupr.toFixed(2))));
   },
 
@@ -52,6 +52,7 @@ window.RatingCalculator = {
     if (dupr >= 4.5) return 'Advanced (4.5+)';
     if (dupr >= 4.0) return 'Intermediate (4.0+)';
     if (dupr >= 3.5) return 'Intermediate (3.5+)';
-    return 'Club Player (3.0+)';
+    if (dupr >= 3.0) return 'Club Player (3.0+)';
+    return 'Novice / Beginner (2.5+)';
   }
 };
